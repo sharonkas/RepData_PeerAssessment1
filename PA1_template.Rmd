@@ -19,10 +19,11 @@ Finally, the sum will be calculated while removing missing values, the table wil
 ```{r}
 CountSteps<-tapply(activity$steps,activity$date,sum,rm.na=TRUE)
 ```
-Here is an histogram for the data:
+Here is an histogram for the data:  
 ```{r}
 hist(CountSteps,col="blue",xlab="Total step per day",main="Frequency of total steps per day")
 ```
+  
 And to calculate the mean of steps per day, I will use the summary function on CounSteps.
 ```{r}
 summary(CountSteps)
@@ -37,10 +38,11 @@ Interval<-(as.numeric(levels(Interval)))
 StepsInterval<-cbind(Interval,AverageSteps)
 StepsInterval<-data.frame(StepsInterval)
 ```
-Then, I'll create a plot depicting the mean steps per time interval:
+Then, I'll create a plot depicting the mean steps per time interval:  
 ```{r}
 plot(StepsInterval[,1],StepsInterval[,2],type="l",xlab="Interval(minutes)",ylab="Average steps per interval",main="Time series of average steps in 5 min intervals:",col="red")
 ```
+    
 For the interval which has the maximum value of average steps, I'll use which.max function to find the specific index corresponding to the max average steps.  
 Then I'll find the suitable interval.
 ```{r}
@@ -94,9 +96,8 @@ Interval2<-(as.numeric(levels(Interval2)))
 StepsInterval2<-cbind(Interval2,AverageS2)
 StepsInterval2<-data.frame(StepsInterval2)
 
-plot(StepsInterval1[,1],StepsInterval1[,2],type="l",xlab="Interval(minutes)",ylab="Average steps per interval",main="Time series of average steps in 5 min intervals:",col="red")
 ```
-And the actual panel plotting:
+And the actual panel plotting is as follows:
 ```{r}
 par(mfrow=c(1,2))
 plot(StepsInterval1[,1],StepsInterval1[,2],type="l",xlab="Interval(minutes)",ylab="Average steps per interval",main="Weekdays",col="red")
